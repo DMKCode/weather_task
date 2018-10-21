@@ -13,11 +13,6 @@ class WeatherForecast extends PureComponent {
     }, {}));
   };
 
-  getDayInfo = data => {
-    const daysOfWeek = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
-    return daysOfWeek[new Date(data[0].dt * 1000).getDay()];
-  };
-
   getHour = time => time ? new Date(time).getHours() : new Date().getHours();
   getDate = date => date ? new Date(date).getDate() : new Date().getDate();
 

@@ -4,7 +4,8 @@ export default function reducer(state = initialState, action) {
   switch (action.type) {
     case REQUEST_DATA: {
       return {
-        ...state
+        ...state,
+        loading: true
       };
       break;
     }
@@ -14,7 +15,8 @@ export default function reducer(state = initialState, action) {
         ...state,
         data: action.payload.data,
         source: action.payload.source || state.source,
-        status: 'success'
+        status: 'success',
+        loading: false
       };
       break;
     }
@@ -22,7 +24,8 @@ export default function reducer(state = initialState, action) {
     case REQUEST_DATA_FAILURE: {
       return {
         ...state,
-        status: 'failure'
+        status: 'failure',
+        loading: false
       };
       break;
     }

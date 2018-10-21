@@ -8,7 +8,8 @@ import rootSaga from '../sagas';
 export const initialState = {
   data: {},
   source: 'api',
-  status: null
+  status: null,
+  loading: false
 };
 
 const configureStore = (preloadedState = initialState) => {

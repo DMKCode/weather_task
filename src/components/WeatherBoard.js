@@ -63,6 +63,7 @@ class WeatherDashboard extends PureComponent {
         <form onSubmit={this.handleApiSubmit}>
           <input type='submit' value='Use Api' />
         </form>
+        { this.props.loading ? <p>loading...</p> : null }
         <section>
           <WeatherForecast forecasts={list} source={source} />
         </section>
@@ -74,7 +75,8 @@ class WeatherDashboard extends PureComponent {
 const mapStateToProps = (state) => {
   return {
     list: state.data.list || [],
-    source: state.source
+    source: state.source,
+    loading: state.loading
   };
 };
 
