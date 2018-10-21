@@ -4,7 +4,6 @@ import { render, mount, shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import WeatherBoard from '../../components/WeatherBoard';
 import WeatherForecast from '../../components/WeatherForecast';
-import Date from '../../components/Date';
 import sampleData from '../../reducers/sample_data'; 
 
 const mockStore = configureStore();
@@ -23,12 +22,11 @@ describe('<WeatherBoard />', () => {
 
   it('should receive data prop', () => {
     const wrapper = mount(<WeatherBoard data={sampleData} store={mockStore(store)} />);
-    console.log(wrapper.props());
     expect(wrapper.prop('data')).toBeDefined();
   });
 
   it('should contain a WeatherForecast', () => {
-    const wrapper = shallow(<WeatherBoard data={sampleData} />);
+    const wrapper = mount(<WeatherBoard data={sampleData} store={mockStore(store)} />);
     expect(wrapper.find(WeatherForecast)).toHaveLength(1);
   });
 });
