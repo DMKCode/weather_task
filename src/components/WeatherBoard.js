@@ -1,6 +1,7 @@
-import React from "react";
+import React, { PureComponent } from "react";
 
-const WeatherDashboard = ({ data }) => {
+class WeatherDashboard extends PureComponent {
+  render() {
     return (
       <div>
         <header>
@@ -13,6 +14,7 @@ const WeatherDashboard = ({ data }) => {
         </section>
       </div>
     );
+  }
 };
 
 export default WeatherDashboard;
