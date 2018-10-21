@@ -6,8 +6,6 @@ import WeatherForecast from './WeatherForecast';
 import { REQUEST_DATA, REQUEST_DATA_SUCCESS } from '../actions';
 
 class WeatherDashboard extends PureComponent {
-  componentDidMount() {  
-  }
 
   handleCsvSubmit = (e) => {
     e.preventDefault(); 
@@ -54,10 +52,8 @@ class WeatherDashboard extends PureComponent {
         <header>
           <h1>5-Day Weather Forecast</h1>
         </header>
-        <form onSubmit={this.handleCsvSubmit}>
+        <form>
           Select a csv file: <input type='file' accept='.csv' name='myFile' onChange={this.handleFileChange} />
-          <br />
-          <input type='submit' value='Use CSV' />
         </form>
         <p>OR</p>
         <form onSubmit={this.handleApiSubmit}>
