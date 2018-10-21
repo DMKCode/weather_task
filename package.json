@@ -64,7 +64,8 @@
       "react",
       "enzyme",
       "jest-enzyme"
-    ]
+    ],
+    "testURL" : "http://localhost/"
   },
   "author": "David Kananda",
   "license": "MIT"
