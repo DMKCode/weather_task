@@ -1,7 +1,8 @@
 import { REQUEST_DATA, REQUEST_DATA_SUCCESS, REQUEST_DATA_FAILURE } from '../actions';
+import sampleData from './sample_data';
 
 const initialState = {
-  data: null,
+  data: sampleData,
   source: 'api',
   status: null
 };
