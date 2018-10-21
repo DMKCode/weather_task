@@ -4,7 +4,8 @@ class WeatherForecast extends PureComponent {
 
   groupByDays = (data=[]) => {
     return (data.reduce((list, item) => {
-      const forecastDate = item.dt_txt.substr(0,10);
+      const forecastTxt = item.dt_txt || item.dt_iso || '';
+      const forecastDate = forecastTxt.substr(0,10);
       list[forecastDate] = list[forecastDate] || [];
       list[forecastDate].push(item);
 
@@ -22,26 +23,28 @@ class WeatherForecast extends PureComponent {
 
   render() {
 
-    const { forecasts } = this.props;
+    const { forecasts, source } = this.props;
     const tiles = Object.values(this.groupByDays(forecasts));
     const forecastTiles = tiles.length > 5 ? tiles.slice(0, 5) : tiles;
+    console.log(source);
     return (
-      <div>
+      <div className="forecasts">
         {forecastTiles.map((item, i) => (
           <div
+            className="forecast"
             key={i}
             ref={`div-${i}`}
           >
             <div>
-              {this.getDayInfo(item)}
+              { source === 'csv' ? item[0].dt_iso.split(' ')[0] : item[0].dt_txt.split(' ')[0]}
             </div>
-            <div key={i}>
+            <div className="hourly" key={i}>
               {item.map((nItem, l) => (
-                <div key={l}>
-                  <div>
-                    {`${Math.round(nItem.main.temp)}°C`}
+                <div className="hourly-info" key={l}>
+                  <div className="hour-temperature ">
+                    {`${ source === 'csv' ? Math.round(nItem.temp) : Math.round(nItem.main.temp)}°C`}
                   </div>
-                  <div>
+                  <div className="hour-of-the-day">
                     {`${this.getHour(nItem.dt * 1000)}:00`}
                   </div>
                 </div>

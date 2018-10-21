@@ -15,9 +15,9 @@ function* requestData({ payload }) {
   try {
 
     const response = yield call(axios.get, location);
-    yield put({type: actions.REQUEST_DATA_SUCCESS, payload: response.data});
+    yield put({ type: actions.REQUEST_DATA_SUCCESS, payload: { data: response.data, source: "api"} });
   } catch(err) {
-    put({type: actions.REQUEST_DATA_FAILURE, payload: err}); 
+    put({ type: actions.REQUEST_DATA_FAILURE, payload: err }); 
   } 
 }
 

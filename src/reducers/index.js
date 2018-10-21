@@ -12,7 +12,8 @@ export default function reducer(state = initialState, action) {
     case REQUEST_DATA_SUCCESS: {
       return {
         ...state,
-        data: action.payload,
+        data: action.payload.data,
+        source: action.payload.source || state.source,
         status: 'success'
       };
       break;

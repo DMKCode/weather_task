@@ -4,7 +4,7 @@ import WeatherBoard from './WeatherBoard';
 
 const WeatherPanel = () => {  
     return (
-      <div>
+      <div className="weather-panel-wrapper">
         <WeatherBoard />
       </div>
     );
