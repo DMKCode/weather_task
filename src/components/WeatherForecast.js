@@ -30,7 +30,7 @@ class WeatherForecast extends PureComponent {
             key={i}
             ref={`div-${i}`}
           >
-            <div>
+            <div className="forecast-date">
               { source === 'csv' ? item[0].dt_iso.split(' ')[0] : item[0].dt_txt.split(' ')[0]}
             </div>
             <div className="hourly" key={i}>
