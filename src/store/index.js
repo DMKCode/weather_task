@@ -6,7 +6,7 @@ import reducer from '../reducers';
 import rootSaga from '../sagas';
 import sampleData from '../reducers/sample_data';
 
-const initialState = {
+export const initialState = {
   data: sampleData,
   source: 'api',
   status: null
