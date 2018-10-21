@@ -25,7 +25,6 @@ class WeatherForecast extends PureComponent {
     const { forecasts } = this.props;
     const tiles = Object.values(this.groupByDays(forecasts));
     const forecastTiles = tiles.length > 5 ? tiles.slice(0, 5) : tiles;
-    console.log(forecastTiles);
     return (
       <div>
         {forecastTiles.map((item, i) => (
