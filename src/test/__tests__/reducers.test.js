@@ -16,13 +16,13 @@ describe('data reducer', () => {
       type: actions.REQUEST_DATA
     };
 
-    expect(reducer(initialState, action)).toEqual(initialState);
+    expect(reducer(initialState, action)).toEqual({ ...initialState, loading: true });
   });
 
   it('should handle REQUEST_DATA_SUCCESS', () => {
     const action = {
       type: actions.REQUEST_DATA_SUCCESS,
-      payload: sampleData
+      payload: { data: sampleData, source: 'api' }
     };
 
     expect(reducer(initialState, action)).toEqual({ ...initialState, data: sampleData, status: 'success' });
