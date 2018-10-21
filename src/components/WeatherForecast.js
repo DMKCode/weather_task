@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 
 class WeatherForecast extends PureComponent {
 
-  groupByDays = data => {
+  groupByDays = (data=[]) => {
     return (data.reduce((list, item) => {
       const forecastDate = item.dt_txt.substr(0,10);
       list[forecastDate] = list[forecastDate] || [];

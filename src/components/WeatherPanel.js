@@ -2,10 +2,10 @@ import React from 'react';
 
 import WeatherBoard from './WeatherBoard';
 
-const WeatherPanel = ({ data }) => {  
+const WeatherPanel = () => {  
     return (
       <div>
-        <WeatherBoard data={data} />
+        <WeatherBoard />
       </div>
     );
 };
