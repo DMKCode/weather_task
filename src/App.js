@@ -1,7 +1,8 @@
 import React from 'react';
+import WeatherPanel from './components/WeatherPanel';
 
 const App = () => (
-  <h1>Weather App</h1>
+  <WeatherPanel />
 );
 
 export default App;
