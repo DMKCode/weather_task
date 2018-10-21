@@ -1,6 +1,6 @@
 import { REQUEST_DATA, REQUEST_DATA_SUCCESS, REQUEST_DATA_FAILURE } from '../actions';
-
-export default function reducer(state = {}, action) {
+import { initialState } from '../store'; 
+export default function reducer(state = initialState, action) {
   switch (action.type) {
     case REQUEST_DATA: {
       return {
@@ -11,17 +11,23 @@ export default function reducer(state = {}, action) {
 
     case REQUEST_DATA_SUCCESS: {
       return {
-        ...state
+        ...state,
+        data: action.payload,
+        status: 'success'
       };
       break;
     }
 
     case REQUEST_DATA_FAILURE: {
       return {
-        ...state
+        ...state,
+        status: 'failure'
       };
       break;
     }
+
+    default:
+      return state;
   }
 
   return state;

@@ -16,7 +16,7 @@ describe('data reducer', () => {
       type: actions.REQUEST_DATA
     };
 
-    expect(reducer({}, action)).toEqual(initialState);
+    expect(reducer(initialState, action)).toEqual(initialState);
   });
 
   it('should handle REQUEST_DATA_SUCCESS', () => {
@@ -25,7 +25,7 @@ describe('data reducer', () => {
       payload: sampleData
     };
 
-    expect(reducer({}, startFetch)).toEqual({ ...initialState, data: sampleData, status: 'success' });
+    expect(reducer(initialState, action)).toEqual({ ...initialState, data: sampleData, status: 'success' });
   });
 
   it('should handle REQUEST_DATA_FAILURE', () => {
@@ -34,6 +34,6 @@ describe('data reducer', () => {
       payload: sampleData
     };
 
-    expect(reducer({}, startFetch)).toEqual({ ...initialState, data: sampleData, status: 'failure' });
+    expect(reducer(initialState, action)).toEqual({ ...initialState, status: 'failure' });
   });
 });

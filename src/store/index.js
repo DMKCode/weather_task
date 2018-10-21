@@ -4,10 +4,9 @@ import { createLogger } from "redux-logger";
 
 import reducer from '../reducers';
 import rootSaga from '../sagas';
-import sampleData from '../reducers/sample_data';
 
 export const initialState = {
-  data: sampleData,
+  data: {},
   source: 'api',
   status: null
 };
